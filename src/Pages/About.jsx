@@ -107,7 +107,8 @@ const AboutPage = () => {
             <p className="text-gray-600 max-w-2xl mx-auto">
               Meet our talented team of designers and architects who bring creativity and expertise to every project.
             </p>
-          </div>
+          </div> 
+          
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -115,7 +116,7 @@ const AboutPage = () => {
                 name: "Faiyyaz Ali",
                 role: "Leader",
                 bio: "Specializing in modern minimalist designs with 10+ years of experience.",
-                social: {
+                social: { 
                   instagram: "#",
                   twitter: "#",
                   linkedin: "#",
