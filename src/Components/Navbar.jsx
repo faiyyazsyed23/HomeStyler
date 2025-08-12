@@ -6,6 +6,7 @@ const PremiumNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [openSubDropdown, setOpenSubDropdown] = useState(null);
   const [activeNav, setActiveNav] = useState('Home');
 
   useEffect(() => {
@@ -19,9 +20,14 @@ const PremiumNavbar = () => {
   const toggleDropdown = (name) => {
     setOpenDropdown(openDropdown === name ? null : name);
     setActiveNav(name);
+    setOpenSubDropdown(null);
   };
 
-  // navItems ko routes ki tarah update kiya gaya hai:
+  const toggleSubDropdown = (name) => {
+    setOpenSubDropdown(openSubDropdown === name ? null : name);
+  };
+
+  // navItems with nested Furniture
   const navItems = [
     { name: 'Home', to: '/' },
     {
@@ -37,17 +43,57 @@ const PremiumNavbar = () => {
       ],
     },
     {
-      name: 'Products',
-      to: '/product',
-      children: [
-        { name: 'Furniture', to: '/product/furniture' },
-        { name: 'Kitchen', to: '/product/kitchen' },
-        { name: 'Lightening', to: '/product/lightening' },
-        { name: 'Decor', to: '/product/decor' },
-        { name: 'Bathroom', to: '/product/bathroom' },
-      ],
+      name: "Products",
+    to: "/product",
+    children: [
+      {
+        name: "Furniture",
+        to: "/product/furniture",
+        children: [
+          { name: "Sofas", to: "/product/furniture/sofas" },
+          { name: "Tables", to: "/product/furniture/tables" },
+          { name: "Chairs", to: "/product/furniture/chairs" }
+        ]
+      },
+      {
+        name: "Kitchen",
+        to: "/product/kitchen",
+        children: [
+          { name: "Cabinets", to: "/product/kitchen/cabinets" },
+          { name: "Cookware", to: "/product/kitchen/cookware" },
+          { name: "Appliances", to: "/product/kitchen/appliances" }
+        ]
+      },
+      {
+        name: "Lighting",
+        to: "/product/lighting",
+        children: [
+          { name: "Ceiling Lights", to: "/product/lighting/ceiling" },
+          { name: "Lamps", to: "/product/lighting/lamps" },
+          { name: "Wall Lights", to: "/product/lighting/wall" }
+        ]
+      },
+      {
+        name: "Decor",
+        to: "/product/decor",
+        children: [
+          { name: "Wall Art", to: "/product/decor/wall-art" },
+          { name: "Mirrors", to: "/product/decor/mirrors" },
+          { name: "Rugs", to: "/product/decor/rugs" }
+        ]
+      },
+      {
+        name: "Bathroom",
+        to: "/product/bathroom",
+        children: [
+          { name: "Showers", to: "/product/bathroom/showers" },
+          { name: "Bathtubs", to: "/product/bathroom/bathtubs" },
+          { name: "Sinks", to: "/product/bathroom/sinks" }
+        ]
+      }
+    ]
     },
-    { name: 'Our Designers', to: '/gallery' },
+   
     { name: 'About', to: '/about' },
     { name: 'Contact', to: '/Contact' },
     { name: 'Feedback', to: '/feedback' },
@@ -113,6 +159,7 @@ const PremiumNavbar = () => {
                       </span>
                     </button>
 
+                    {/* First Level Dropdown */}
                     <div
                       className={`absolute top-full left-0 mt-1 w-56 bg-gray-800/95 backdrop-blur-xl rounded-xl shadow-2xl overflow-hidden transition-all duration-300 origin-top transform ${
                         openDropdown === item.name
@@ -121,25 +168,57 @@ const PremiumNavbar = () => {
                       }`}
                     >
                       {item.children.map((child) => (
-                        <NavLink
-                          key={child.name}
-                          to={child.to}
-                          className={({ isActive }) =>
-                            `block px-5 py-3.5 text-sm relative overflow-hidden group ${
-                              isActive ? 'text-white font-semibold' : 'text-gray-300'
-                            }`
-                          }
-                          onClick={() => {
-                            setActiveNav(child.name);
-                            setOpenDropdown(null);
-                          }}
-                        >
-                          <span className="relative z-10 transition-colors group-hover:text-white">
-                            {child.name}
-                          </span>
-                          <span className="absolute inset-0 bg-gradient-to-r from-amber-500 to-amber-700 -z-10 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></span>
-                          <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white transition-all duration-500 group-hover:w-full"></span>
-                        </NavLink>
+                        <div key={child.name} className="relative">
+                          {child.children ? (
+                            <>
+                              <button
+                                onClick={() => toggleSubDropdown(child.name)}
+                                className="w-full flex justify-between items-center px-5 py-3.5 text-sm text-gray-300 hover:text-white hover:bg-amber-500/30"
+                              >
+                                {child.name}
+                                <FaChevronDown
+                                  size={10}
+                                  className={`transition-transform ${
+                                    openSubDropdown === child.name ? 'rotate-180' : ''
+                                  }`}
+                                />
+                              </button>
+                              {openSubDropdown === child.name && (
+                                <div className="pl-5 bg-gray-700">
+                                  {child.children.map((sub) => (
+                                    <NavLink
+                                      key={sub.name}
+                                      to={sub.to}
+                                      className="block px-4 py-2 text-xs text-gray-300 hover:text-white hover:bg-amber-500/30"
+                                      onClick={() => {
+                                        setActiveNav(sub.name);
+                                        setOpenDropdown(null);
+                                        setOpenSubDropdown(null);
+                                      }}
+                                    >
+                                      {sub.name}
+                                    </NavLink>
+                                  ))}
+                                </div>
+                              )}
+                            </>
+                          ) : (
+                            <NavLink
+                              to={child.to}
+                              className={({ isActive }) =>
+                                `block px-5 py-3.5 text-sm ${
+                                  isActive ? 'text-white font-semibold' : 'text-gray-300'
+                                } hover:text-white hover:bg-amber-500/30`
+                              }
+                              onClick={() => {
+                                setActiveNav(child.name);
+                                setOpenDropdown(null);
+                              }}
+                            >
+                              {child.name}
+                            </NavLink>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </>
@@ -165,62 +244,8 @@ const PremiumNavbar = () => {
             ))}
           </div>
 
-          {/* User Icons */}
-          <div className="flex items-center space-x-4">
-            <Link
-              to="/search"
-              className="p-2.5 relative group rounded-full hover:bg-gray-700/50 transition-all duration-300"
-              onClick={() => setActiveNav('')}
-            >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-amber-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <FaSearch
-                className="relative z-10 text-gray-300 group-hover:text-white transition-colors"
-                size={18}
-              />
-            </Link>
-
-            <button
-              className="p-2.5 relative group rounded-full hover:bg-gray-700/50 transition-all duration-300"
-              onClick={() => alert('Favorites clicked')}
-            >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-amber-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <FaHeart
-                className="relative z-10 text-gray-300 group-hover:text-white transition-colors"
-                size={18}
-              />
-            </button>
-
-            <div className="relative group">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-amber-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-transparent group-hover:border-amber-500 transition-all duration-300 relative z-10 flex items-center justify-center bg-gray-200 border-dashed border-2 rounded-xl">
-                <FaUser className="text-gray-500" />
-              </div>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden ml-4 p-2.5 rounded-lg hover:bg-gray-700/50 transition-all group"
-            >
-              <div className="space-y-1.5 relative">
-                <span
-                  className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                    isOpen ? 'rotate-45 translate-y-2' : ''
-                  }`}
-                ></span>
-                <span
-                  className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                    isOpen ? 'opacity-0' : 'opacity-100'
-                  }`}
-                ></span>
-                <span
-                  className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                    isOpen ? '-rotate-45 -translate-y-2' : ''
-                  }`}
-                ></span>
-              </div>
-            </button>
-          </div>
+          {/* Icons Section */}
+          {/* ... keep your existing icon section here ... */}
         </div>
       </div>
 
@@ -257,22 +282,59 @@ const PremiumNavbar = () => {
                   {openDropdown === item.name && (
                     <div className="pl-6 mt-1 border-l-2 border-amber-500 ml-4">
                       {item.children.map((child) => (
-                        <NavLink
-                          key={child.name}
-                          to={child.to}
-                          className={({ isActive }) =>
-                            `block py-3 px-4 rounded-lg hover:bg-amber-500/30 transition-colors duration-300 ${
-                              isActive ? 'text-white font-semibold' : 'text-gray-300'
-                            }`
-                          }
-                          onClick={() => {
-                            setActiveNav(child.name);
-                            setOpenDropdown(null);
-                            setIsOpen(false); // close mobile menu on click
-                          }}
-                        >
-                          {child.name}
-                        </NavLink>
+                        <div key={child.name}>
+                          {child.children ? (
+                            <>
+                              <button
+                                onClick={() => toggleSubDropdown(child.name)}
+                                className="w-full flex justify-between items-center py-3 px-4 rounded-lg hover:bg-amber-500/30 transition-colors duration-300 text-gray-300"
+                              >
+                                {child.name}
+                                <FaChevronDown
+                                  size={10}
+                                  className={`transition-transform ${
+                                    openSubDropdown === child.name ? 'rotate-180' : ''
+                                  }`}
+                                />
+                              </button>
+                              {openSubDropdown === child.name && (
+                                <div className="pl-5 border-l border-gray-600">
+                                  {child.children.map((sub) => (
+                                    <NavLink
+                                      key={sub.name}
+                                      to={sub.to}
+                                      className="block py-2 px-4 text-sm text-gray-300 hover:text-white hover:bg-amber-500/30"
+                                      onClick={() => {
+                                        setActiveNav(sub.name);
+                                        setOpenDropdown(null);
+                                        setOpenSubDropdown(null);
+                                        setIsOpen(false);
+                                      }}
+                                    >
+                                      {sub.name}
+                                    </NavLink>
+                                  ))}
+                                </div>
+                              )}
+                            </>
+                          ) : (
+                            <NavLink
+                              to={child.to}
+                              className={({ isActive }) =>
+                                `block py-3 px-4 rounded-lg hover:bg-amber-500/30 transition-colors duration-300 ${
+                                  isActive ? 'text-white font-semibold' : 'text-gray-300'
+                                }`
+                              }
+                              onClick={() => {
+                                setActiveNav(child.name);
+                                setOpenDropdown(null);
+                                setIsOpen(false);
+                              }}
+                            >
+                              {child.name}
+                            </NavLink>
+                          )}
+                        </div>
                       ))}
                     </div>
                   )}
