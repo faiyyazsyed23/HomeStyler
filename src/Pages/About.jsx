@@ -1,10 +1,13 @@
+
+
+
 import { TbArrowUpRight } from "react-icons/tb";
 
 export default function About() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative h-[80vh] bg-[url('https://images.unsplash.com/photo-1615529162924-f8605388461a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center">
+      <div className="relative h-[80vh] bg-[url('../assets/images/about.jpg')] bg-cover bg-center">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
         <div className="container relative flex h-full items-center justify-center lg:justify-start">
           <h1 className="max-w-4xl text-5xl font-bold tracking-widest text-white md:text-6xl lg:text-7xl lg:leading-tight">
@@ -15,35 +18,49 @@ export default function About() {
       </div>
 
       {/* Mission Statement */}
-      <div className="container py-16 lg:py-24">
-        <div className="flex flex-col items-center justify-center gap-12 lg:flex-row">
-          <div className="lg:w-1/2">
-            <div className="mb-4 flex items-center gap-3">
-              <div className="h-1 w-16 bg-amber-500"></div>
-              <span className="font-semibold uppercase tracking-widest text-amber-500">Our Mission</span>
-            </div>
-            <h2 className="mb-6 text-4xl font-bold leading-tight tracking-wide text-gray-900 lg:text-5xl">
-              We Transform Spaces Into Inspiring Environments
-            </h2>
-            <p className="text-lg leading-relaxed text-gray-600">
-              At Digimax Interior Design, we believe that exceptional spaces inspire exceptional living. 
-              We blend innovative design concepts with meticulous craftsmanship to create interiors that 
-              reflect your personality while exceeding functional expectations.
-            </p>
-          </div>
-          
-          <div className="relative lg:w-1/2">
-            <div className="aspect-video overflow-hidden rounded-xl shadow-2xl">
-              <img 
-                src="../assets/images/Transform Spaces.png" 
-                alt="Modern interior design" 
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </div>
-            <div className="absolute -bottom-6 -right-6 -z-10 h-full w-full rounded-xl border-4 border-amber-500"></div>
-          </div>
-        </div>
+      <div className="container mx-auto px-4 py-16 lg:py-24">
+  <div className="flex flex-col-reverse items-center gap-12 lg:flex-row lg:gap-16">
+    
+    {/* Text Content */}
+    <div className="lg:w-1/2">
+      {/* Heading Tagline */}
+      <div className="mb-4 flex items-center gap-3">
+        <div className="h-1 w-16 bg-amber-500"></div>
+        <span className="font-semibold uppercase tracking-widest text-amber-500">
+          Our Mission
+        </span>
       </div>
+
+      {/* Main Heading */}
+      <h2 className="mb-6 text-3xl font-bold leading-snug tracking-wide text-gray-900 sm:text-4xl lg:text-5xl">
+        We Transform Spaces Into <span className="text-amber-500">Inspiring Environments</span>
+      </h2>
+
+      {/* Description */}
+      <p className="text-base leading-relaxed text-gray-600 sm:text-lg">
+        At <span className="font-semibold text-gray-900">Digimax Interior Design</span>, we believe 
+        that exceptional spaces inspire exceptional living. Our team blends 
+        <span className="text-amber-500 font-medium"> innovative design concepts</span> 
+        with meticulous craftsmanship to create interiors that not only reflect your 
+        personality but also exceed functional expectations.
+      </p>
+    </div>
+
+    {/* Image Content */}
+    <div className="relative lg:w-1/2">
+      <div className="aspect-video overflow-hidden rounded-xl shadow-2xl">
+        <img 
+          src="../assets/images/Transform Spaces.png" 
+          alt="Modern interior design" 
+          className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+        />
+      </div>
+      <div className="absolute -bottom-6 -right-6 -z-10 h-full w-full rounded-xl border-4 border-amber-500"></div>
+    </div>
+
+  </div>
+</div>
+
 
       {/* Values Section */}
       <div className="bg-gray-50 py-16 lg:py-24">
@@ -137,10 +154,7 @@ export default function About() {
               </div>
             </div>
             
-            <a className="group inline-flex items-center gap-2 rounded-full bg-gray-900 px-8 py-4 text-lg font-medium text-white transition-all duration-300 hover:gap-3 hover:bg-amber-500 hover:shadow-xl" href="#">
-              <span>Read Our Full Story</span>
-              <TbArrowUpRight className="text-xl transition-transform duration-300 group-hover:rotate-45" />
-            </a>
+           
           </div>
         </div>
       </div>
@@ -198,10 +212,7 @@ export default function About() {
           </div>
           
           <div className="mt-16 text-center">
-            <a className="inline-flex items-center gap-2 rounded-full border-2 border-gray-900 px-8 py-3 font-medium text-gray-900 transition-all duration-300 hover:bg-gray-900 hover:text-white" href="#">
-              <span>View Full Team</span>
-              <TbArrowUpRight className="text-xl" />
-            </a>
+           
           </div>
         </div>
       </div>
@@ -219,9 +230,7 @@ export default function About() {
             <a href="#" className="rounded-full bg-amber-500 px-8 py-4 font-medium text-gray-900 transition-colors hover:bg-amber-400">
               Schedule a Consultation
             </a>
-            <a href="#" className="rounded-full bg-white/10 px-8 py-4 font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20">
-              View Our Portfolio
-            </a>
+           
           </div>
         </div>
       </div>

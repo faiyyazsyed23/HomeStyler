@@ -1,45 +1,14 @@
+
 // src/Home.jsx
-import { TbArrowUpRight, TbArrowNarrowRight } from "react-icons/tb";
+import { TbArrowUpRight } from "react-icons/tb";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
+
+
 export default function Home() {
-  const items = [
-    {
-      id: "01",
-      catagory: "BEDROOM SETUP",
-      title: "Luxury Bedroom Retreat",
-      image: "../assets/images/Bedroom setup.png",
-      description:
-        "Elegant master suite with custom-designed furniture and premium textiles",
-    },
-    {
-      id: "02",
-      catagory: "KITCHEN SETUP",
-      title: "Gourmet Chef's Kitchen",
-      image: "../assets/images/KITCHEN SETUP.png",
-      description:
-        "State-of-the-art kitchen with marble countertops and premium appliances",
-    },
-    {
-      id: "03",
-      catagory: "DRAWING SETUP",
-      title: "Elegant Drawing Room",
-      image: "../assets/images/drowing.jpg",
-     
-      description:
-        "Sophisticated formal living space with curated art and bespoke furniture",
-    },
-    {
-      id: "04",
-      catagory: "LIVING SETUP",
-      title: "Modern Family Room",
-      image: "../assets/images/LIVING SETUP.png",
-      description:
-        "Contemporary living space designed for comfort and social gatherings",
-    },
-  ];
+
 
   const testimonials = [
     {
@@ -63,6 +32,33 @@ export default function Home() {
       quote: "Our office redesign has boosted employee morale and productivity. The team at Digimax are true professionals.",
       rating: 5,
     },
+  ];
+
+   const services = [
+    { 
+      title: "Residential Design", 
+      description: "Custom homes, apartments, and private residences tailored to your lifestyle",
+      icon: "🏠",
+      color: "from-amber-500 to-amber-600"
+    },
+    { 
+      title: "Commercial Spaces", 
+      description: "Office, retail, and hospitality environments designed for impact",
+      icon: "🏢",
+      color: "from-emerald-500 to-emerald-600"
+    },
+    { 
+      title: "Renovation & Restoration", 
+      description: "Breathing new life into existing spaces while preserving character",
+      icon: "🔨",
+      color: "from-blue-500 to-blue-600"
+    },
+    { 
+      title: "Luxury Staging", 
+      description: "Premium staging solutions that showcase properties at their best",
+      icon: "✨",
+      color: "from-purple-500 to-purple-600"
+    }
   ];
 
   
@@ -104,106 +100,66 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Services Section */}
-      <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <div className="inline-flex items-center gap-2 text-amber-600 mb-4">
-              <div className="h-px w-8 bg-amber-600"></div>
-              <span className="text-sm font-medium tracking-widest">OUR EXPERTISE</span>
-            </div>
-            <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-              Curated Design Services
-            </h2>
-            <p className="mt-4 text-gray-600">
-              We specialize in transforming spaces into personalized sanctuaries that reflect 
-              your unique style and elevate your living experience.
-            </p>
+  <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-24 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="inline-flex items-center gap-2 text-amber-600 mb-4">
+            <div className="h-px w-8 bg-amber-600"></div>
+            <span className="text-sm font-medium tracking-widest">OUR EXPERTISE</span>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { 
-                title: "Residential Design", 
-                description: "Custom homes, apartments, and private residences tailored to your lifestyle",
-                icon: "🏠"
-              },
-              { 
-                title: "Commercial Spaces", 
-                description: "Office, retail, and hospitality environments designed for impact",
-                icon: "🏢"
-              },
-              { 
-                title: "Renovation & Restoration", 
-                description: "Breathing new life into existing spaces while preserving character",
-                icon: "🔨"
-              },
-              { 
-                title: "Luxury Staging", 
-                description: "Premium staging solutions that showcase properties at their best",
-                icon: "✨"
-              }
-            ].map((service, index) => (
-              <div key={index} className="bg-[#faf9f7] p-8 rounded-xl group hover:bg-white hover:shadow-xl transition-all duration-300">
-                <div className="text-4xl mb-6">{service.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-                <div className="mt-6">
-                  <a href="#" className="inline-flex items-center text-amber-600 font-medium group-hover:underline">
-                    Explore Service
-                    
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Curated Design Services
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            We specialize in transforming spaces into personalized sanctuaries that reflect 
+            your unique style and elevate your living experience.
+          </p>
         </div>
-      </div>
-
-      {/* Catalogue Section */}
-      <div className="py-20 bg-[#faf9f7]">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end gap-8 mb-16">
-            <div>
-              <div className="inline-flex items-center gap-2 text-amber-600 mb-4">
-                <div className="h-px w-8 bg-amber-600"></div>
-                <span className="text-sm font-medium tracking-widest">RECENT WORK</span>
-              </div>
-              <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-                Signature Projects
-              </h2>
-            </div>
-           
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {items.map((item) => (
-              <div key={item.id} className="relative group overflow-hidden rounded-xl">
-                <div className="overflow-hidden rounded-xl">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-110" 
-                  />
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent text-white">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <span className="text-xs font-medium text-amber-400 uppercase tracking-widest">
-                        {item.catagory}
-                      </span>
-                      <h3 className="mt-1 text-xl font-bold">{item.title}</h3>
-                    </div>
-                    <span className="text-2xl font-serif text-amber-400">{item.id}</span>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service, index) => (
+            <div 
+              key={index} 
+              className="bg-white p-8 rounded-2xl group transition-all duration-500 hover:-translate-y-2 hover:shadow-xl"
+            >
+              {/* 3D Icon Container */}
+              <div className="relative mb-8">
+                <div className="absolute inset-0 bg-gradient-to-br rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                <div className="relative flex items-center justify-center">
+                  <div className={`absolute w-24 h-24 rounded-2xl bg-gradient-to-br ${service.color} opacity-10 group-hover:opacity-20 transform rotate-12 transition-all duration-500 group-hover:rotate-3`}></div>
+                  <div className={`absolute w-24 h-24 rounded-2xl bg-gradient-to-br ${service.color} opacity-20 group-hover:opacity-30 transform -rotate-12 transition-all duration-500 group-hover:-rotate-3`}></div>
+                  <div className="relative z-10 w-20 h-20 bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                    <span className="text-3xl transform group-hover:scale-110 transition-transform duration-300">
+                      {service.icon}
+                    </span>
                   </div>
-                  <p className="mt-3 text-sm text-gray-200">{item.description}</p>
-                  
                 </div>
               </div>
-            ))}
-          </div>
+              
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+              <p className="text-gray-600 mb-6">{service.description}</p>
+              <div className="mt-6">
+                <a 
+                  href="#" 
+                  className="inline-flex items-center text-amber-600 font-medium group-hover:text-amber-700 transition-colors duration-300"
+                >
+                  Explore Service
+                  <svg 
+                    className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
+    </div>
 
       {/* About Section */}
       <div className="py-24 bg-white">
@@ -258,8 +214,8 @@ export default function Home() {
               </div>
               
               <button className="mt-10 inline-flex items-center px-8 py-4 text-white bg-gray-900 rounded-full shadow-lg hover:bg-amber-600 transition-colors duration-300 group">
-                <span className="font-medium">Discover Our Process</span>
-                <TbArrowUpRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:rotate-45" />
+                <span className="font-medium">Our story</span>
+    
               </button>
             </div>
           </div>

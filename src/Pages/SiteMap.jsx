@@ -6,70 +6,70 @@ const SitemapPage = () => {
   
   const pages = [
     {
-      title: "Home Page",
-      link: "index.html",
+      title: "Home",
+      link: "/",
       icon: <FaHome className="text-amber-500" />,
       color: "from-amber-50 to-amber-100",
       subpages: []
     },
     {
       title: "Design Styles Page",
-      link: "designstyles.html",
+      link: "designstyles.",
       icon: <FaPalette className="text-purple-500" />,
       color: "from-purple-50 to-purple-100",
       subpages: [
-        { title: "Living Room", link: "livingroom.html" },
-        { title: "Kitchen", link: "kitchen.html" },
-        { title: "Bedroom", link: "bedroom.html" },
-        { title: "Bathroom", link: "bathroom.html" },
-        { title: "Contemporary Styles", link: "contemporarystyle.html" },
-        { title: "Elegant Look Styles", link: "elegantstyle.html" }
+        { title: "Living Room", link: "livingroom" },
+        { title: "Kitchen", link: "kitchen" },
+        { title: "Bedroom", link: "bedroom" },
+        { title: "Bathroom", link: "bathroom" },
+        { title: "Contemporary Styles", link: "contemporarystyl" },
+        { title: "Elegant Look Styles", link: "elegantstyle" }
       ]
     },
     {
       title: "Products Page",
-      link: "product.html",
+      link: "",
       icon: <FaBox className="text-blue-500" />,
       color: "from-blue-50 to-blue-100",
       subpages: [
-        { title: "Furniture", link: "#" },
-        { title: "Kitchen", link: "#" },
-        { title: "Lightening", link: "#" },
-        { title: "Decor", link: "#" },
-        { title: "Bathroom", link: "#" }
+        { title: "Furniture", link: "Bed" },
+        { title: "Kitchen", link: "Cabnites" },
+        { title: "Lightening", link: "Ceiling" },
+        { title: "Decor", link: "Curtains" },
+        { title: "Bathroom", link: "Bathrooms" }
       ]
     },
     {
       title: "Our Designers",
-      link: "#gallery",
+      link: "#",
       icon: <FaUsers className="text-emerald-500" />,
       color: "from-emerald-50 to-emerald-100",
       subpages: []
     },
     {
       title: "About Us Page",
-      link: "about.html",
+      link: "About",
       icon: <FaInfoCircle className="text-teal-500" />,
       color: "from-teal-50 to-teal-100",
       subpages: []
     },
     {
       title: "Contact Us Page",
-      link: "Contactus.html",
+      link: "Contact",
       icon: <FaEnvelope className="text-rose-500" />,
       color: "from-rose-50 to-rose-100",
       subpages: []
     },
     {
       title: "Feedback Page",
-      link: "feedback.html",
+      link: "Feedback",
       icon: <FaComments className="text-indigo-500" />,
       color: "from-indigo-50 to-indigo-100",
       subpages: []
     },
     {
       title: "Site Map Page",
-      link: "sitemap.html",
+      link: "SiteMap",
       icon: <FaSitemap className="text-gray-600" />,
       color: "from-gray-50 to-gray-100",
       subpages: []
@@ -77,7 +77,19 @@ const SitemapPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 sm:px-6 relative overflow-hidden">
+    
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 relative overflow-hidden">
+      
+      {/* Banner Section */}
+      <div className="relative w-full h-64 md:h-80 bg-cover bg-center" style={{ backgroundImage: 'url(/assets/images/sitemapbanner.jpg)' }}>
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white text-center">
+            Website Sitemap
+          </h1>
+        </div>
+      </div>
+
+      
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-24 h-24 rounded-full bg-amber-200/30 animate-pulse -z-10"></div>
       <div className="absolute bottom-40 right-10 w-16 h-16 rounded-full bg-purple-300/30 animate-ping-slow -z-10"></div>

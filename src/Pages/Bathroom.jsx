@@ -54,11 +54,12 @@ const BathroomCollection = () => {
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="max-w-7xl mx-auto px-4">
+   
       {/* Heading */}
-      <h1 className="text-center text-3xl font-bold text-gray-800">
+      <h2 className="text-center text-3xl font-bold text-gray-800 mt-10">
         Discover Your Bathroom Style
-      </h1>
+      </h2>
       <p className="text-center text-gray-600 mt-2 max-w-2xl mx-auto">
         Explore our beautifully crafted bathroom designs, perfect for adding a touch of elegance and functionality to your space. From modern to rustic styles, our collection offers a wide range of options to suit every taste.
       </p>
@@ -80,9 +81,9 @@ const BathroomCollection = () => {
       </div>
 
       {/* Collection Heading */}
-      <h1 className="text-center text-3xl font-bold text-gray-800 mt-10">
+      <h2 className="text-center text-3xl font-bold text-gray-800 mt-10">
         Bathroom Collection
-      </h1>
+      </h2>
       <p className="text-center text-gray-600 mt-2 max-w-2xl mx-auto">
         Explore our beautifully crafted country-style designs, perfect for adding a touch of rustic charm to any space. From modern to vintage styles, our collection offers a wide range of options to enhance your bathroom.
       </p>

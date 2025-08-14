@@ -50,7 +50,7 @@ const PremiumFooter = () => {
               Quick Links
             </h3>
             <ul className="space-y-4">
-              {['Home', 'About Us', 'Services', 'Portfolio', 'Testimonials', 'Contact'].map((item, index) => (
+              {['Home', 'About Us', 'Services',  'Contact'].map((item, index) => (
                 <li key={index}>
                   <a 
                     href="#" 
@@ -121,45 +121,19 @@ const PremiumFooter = () => {
                 </div>
                 <div>
                   <p className="font-medium text-white">Email</p>
-                  <p className="text-[#a0a0a0]">hello@interiorstudio.com</p>
+                  <p className="text-[#a0a0a0]">hello@Homestyler.com</p>
                 </div>
               </li>
             </ul>
           </div>
         </div>
         
-        {/* Newsletter & Bottom section */}
-        <div className="pt-8 flex flex-col lg:flex-row justify-between items-center gap-8">
-          <div className="flex-1 max-w-xl">
-            <h3 className="text-xl font-bold text-white mb-4">Subscribe to Our Newsletter</h3>
-            <div className="flex">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="bg-[#1a1a1a] text-white px-6 py-3 w-full rounded-l-lg focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
-              />
-              <button className="bg-gradient-to-r from-[#ff6a00] to-[#ff9e00] text-white px-6 py-3 rounded-r-lg hover:opacity-90 transition-opacity font-medium">
-                Subscribe
-              </button>
-            </div>
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-8">
-            {['Visa', 'Mastercard', 'PayPal', 'Apple Pay', 'Google Pay'].map((method, index) => (
-              <div key={index} className="flex items-center">
-                <div className="w-8 h-8 bg-[#1a1a1a] rounded-full flex items-center justify-center mr-2">
-                  <div className="w-4 h-4 bg-gradient-to-r from-[#ff6a00] to-[#ff9e00] rounded-full"></div>
-                </div>
-                <span className="text-[#a0a0a0]">{method}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+
         
         {/* Copyright */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-[#333333] mt-8">
           <div className="text-[#777]">
-            &copy; 2023 InteriorStudio. All rights reserved.
+            &copy; 2025 Homestyler. All rights reserved.
           </div>
           <div className="flex flex-wrap justify-center gap-6">
             {['Privacy Policy', 'Terms of Service', 'Sitemap', 'Careers'].map((item, index) => (

@@ -1,30 +1,10 @@
 import React, { useState } from "react";
+import stylesData from "../data/contemporaryData.json"; // JSON import
 
 const ContemporaryCollection = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const styles = [
-    {
-      title: "Modern Elegance",
-      description: "A sophisticated design blending comfort with style.",
-      products: ["Contemporary Sofa", "Glass Coffee Table", "Metallic Accent Chair"],
-      image: "/assets/images/cotemporary1.jpg",
-    },
-    {
-      title: "Vibrant Colors",
-      description: "Brighten your space with energetic hues and bold designs.",
-      products: ["Colorful Area Rug", "Statement Wall Art", "Brightly Colored Cushions"],
-      image: "/assets/images/cotemporary2.jpg",
-    },
-    {
-      title: "Sleek Lines",
-      description: "Embrace minimalism with clean, straight lines for a modern look.",
-      products: ["Minimalist Dining Table", "Streamlined Dining Chairs", "Subtle Decorative Accents"],
-      image: "assets/images/cotemporary3.jpg",
-    },
-  ];
-
-  const filteredStyles = styles.filter((style) =>
+  const filteredStyles = stylesData.filter((style) =>
     style.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -48,7 +28,6 @@ const ContemporaryCollection = () => {
           className="border border-gray-300 rounded-lg px-4 py-2 w-full max-w-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <button
-          onClick={() => {}}
           className="bg-blue-600 text-white px-6 py-2 rounded-lg mt-3 hover:bg-blue-700 transition"
         >
           Search
